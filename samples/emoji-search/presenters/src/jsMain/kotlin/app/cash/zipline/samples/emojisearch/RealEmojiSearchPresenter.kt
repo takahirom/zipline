@@ -21,25 +21,14 @@ class RealEmojiSearchPresenter(
   )
 
   override suspend fun produceModels(
-    events: Flow<EmojiSearchEvent>
-  ): Flow<EmojiSearchViewModel> {
-    return coroutineScope {
-      channelFlow {
-        send(EmojiSearchViewModel("", listOf(loadingImage)))
-
-        loadImageIndex()
-        send(produceModel())
-
-        events.collectLatest { event ->
-          when (event) {
-            is EmojiSearchEvent.SearchTermEvent -> {
-              latestSearchTerm = event.searchTerm
-              send(produceModel())
-            }
-          }
-        }
-      }
+    event: EmojiSearchEvent
+  ): EmojiSearchViewModel {
+    println("SearchTermEvent ${event}")
+    loadImageIndex()
+    if (event is EmojiSearchEvent.SearchTermEvent) {
+      latestSearchTerm = event.searchTerm
     }
+    return produceModel()
   }
 
   private suspend fun loadImageIndex() {

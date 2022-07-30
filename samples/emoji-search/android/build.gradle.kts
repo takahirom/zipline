@@ -54,6 +54,9 @@ android {
 
 dependencies {
   implementation(projects.zipline)
+//  implementation("app.cash.zipline:zipline:1.0.0-SNAPSHOT")
+//  implementation("app.cash.zipline:zipline-profiler:1.0.0-SNAPSHOT")
+//  implementation("app.cash.zipline:zipline-loader:1.0.0-SNAPSHOT")
   implementation(projects.ziplineProfiler)
   implementation(projects.samples.emojiSearch.presenters)
   implementation(libs.android.material)

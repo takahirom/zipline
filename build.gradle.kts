@@ -10,6 +10,7 @@ buildscript {
   repositories {
     mavenCentral()
     google()
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
     gradlePluginPortal()
   }
   dependencies {
@@ -37,6 +38,7 @@ allprojects {
   repositories {
     mavenCentral()
     google()
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
   }
 }
 

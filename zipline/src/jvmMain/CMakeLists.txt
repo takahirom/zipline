@@ -1,3 +1,7 @@
+message(STATUS "JAVA_HOME: '$ENV{JAVA_HOME}'") 
+find_package(Java 11 REQUIRED Development)
+include(UseJava)
+
 cmake_minimum_required(VERSION 3.4.1)
 project(quickjs)
 
@@ -9,6 +13,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 set(JAVA_AWT_LIBRARY NotNeeded)
 set(JAVA_AWT_INCLUDE_PATH NotNeeded)
+
+
+set(JAVA_INCLUDE_PATH "$ENV{JAVA_HOME}/include")
+set(JAVA_INCLUDE_PATH2 "$ENV{JAVA_HOME}/include/darwin")
+
 find_package(JNI REQUIRED)
 include_directories(${JNI_INCLUDE_DIRS})
 
